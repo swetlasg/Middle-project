@@ -1,0 +1,14 @@
+{
+  "name": "9gagnew",
+  "version": "1.0.0",
+  "description": "9gagProject",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vasil",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

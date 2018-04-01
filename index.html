@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- staroto -->
+    <header>
+        <nav id="topMenu">
+            <ul>
+                <li id="icon">9GAG</li>
+                <li id="login"><a href="">Log in</a></li>
+                <li id="signUp"><a href="">Sign up</a></li>
+                <li id="search"><a href="">&#128269;</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="hashtags"> 
+        <script>
+            $(function(){
+                var hashtag= '';
+                var name = 'golem';
+                for(var i = 0;i<20;i++){
+                    hashtag += `<div><p>${name}</p></div>`;
+                }
+                $('#hashtags').html(hashtag);
+            });
+        </script>
+    </div>
+    <aside>
+        <!-- <section id="popular">
+            <ul>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </section> -->
+       <section id="categories">
+           <ul>
+               <li><a href=""><img width="25px" src="assets/images/Categories/animals.png" alt=""/>Animals</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/AnimeManga.png" alt=""/>Anime &#38; Manga</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/awesome.png" alt=""/>Awesome</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/car.png" alt=""/>Car</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/comics.png" alt=""/>Comic</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/country.png" alt=""/>Country</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/clasicalArtMemes.png" alt=""/>Clasical Art memes</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/food.png" alt=""/>Food</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/gaming.png" alt=""/>Gaming</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/girly.png" alt=""/>Girly things</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/historical.png" alt=""/>Historycal Images</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/horror.png" alt=""/>Horror</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/movies.png" alt=""/>Movies &#38; TV</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/music.png" alt=""/>Music</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/politics.png" alt=""/>Politics</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/school.png" alt=""/>School</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/sci-fi.png" alt=""/>Sci-fi</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/sports.png" alt=""/>Sport</a></li>
+               <li><a href=""><img width="25px" src="assets/images/Categories/wtf.png" alt=""/>WTF</a></li>
+           </ul>
+           <footer>
+               
+           </footer>
+       </section>
+    </aside>
+    <main>
+        
+    </main>
+    <div id="post-div">
+        <h1 id="caption">Dispicabe me</h1>
+        <img src="http://www.slashfilm.com/wp/wp-content/images/despicableme-gru-drink.jpg" alt="">
+        <h3 id="category-text">funny despicable</h3>
+        <p>808 points</p>
+        <p>&middot;</p>
+        <p>39 comments</p>
+        <div>
+            <img src="assets/images/arrows/arrow up.png" alt="">
+            <img src="assets/images/arrows/arrow down.png" alt="">
+            <img src="assets/images/arrows/comment.png" alt="">
+        </div>
+    </div>
+    <div>
+        <input id="search-form" type="text" placeholder="Type to search...  ">
+    </div>
+    <div id="login-form">
+        <form action="">
+            <div>
+                <h1>Login</h1>
+                <br>
+                <br>
+                <br>
+            </div>
+            <div>
+                <p>Username</p>
+                <input id="username" type="text">
+                <br>
+                <br>
+            </div>
+            <div>
+                <p>Password</p>
+                <input id="password" type="password">
+                <br>
+                <br>
+                <br>
+            </div>
+            <div>
+                <button class="button">Login</button>
+            </div>
+        </form>
+    </div>
+    <div id="signUp-form">
+            <form action="">
+                <div>
+                    <h1>Sign Up</h1>
+                    <br>
+                    <a href="http://www.facebook.com"> <img id="facebookIcon" src="assets/images/facebookIcon.png" alt=""> </a>
+                    <a href="https://mail.google.com"> <img id="googleIcon" src="assets/images/googleIcon.png" alt=""> </a>
+                    <br>
+                    <br>
+                    <br><br>
+                </div>
+                <div>
+                    <p>Username</p>
+                    <input id="sign-username" type="text">
+                    <br>
+                    <br>
+                </div>
+                <div>
+                    <p>Password</p>
+                    <input id="sign-password" type="password">
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div>
+                    <button class="button">Sign Up</button>
+                </div>
+            </form>
+        </div>
+</body>
+</html>
