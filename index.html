@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src='handlebars-v4.0.11.js'></script>
     <link rel="stylesheet" href="assets/style.css">
     <script src="services/postService.js"></script>
     <script src="services/userService.js"></script>
     <script src="assets/script.js"></script>
     <!-- <script src="assets/app.js"></script> -->
     <script src="post.json"></script>
+    <script src='assets/categories.json'></script>
     <title>9GAG</title>
 </head>
-<body>
+
+<body id='body'>
     <!-- staroto -->
     <header>
         <nav id="topMenu" class="navMenu">
@@ -28,7 +32,7 @@
             <ul>
                 <li id="icon-logged">9GAG</li>
                 <li id="post-button"><a href="">&plus; Upload</a></li>
-                <li><a href=""><img width="16px" src="https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/user-512.png" alt=""></a></li>
+                <li id='userPhoto'><a href=""><img width="16px" src="https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/user-512.png" alt=""></a></li>
                 <li id="search-logged" class="search-btn"><a href="">&#128269;</a></li>
             </ul>
         </nav>
@@ -58,36 +62,36 @@
                 <li><a href=""><img src="assets/images/Categories/awesome.png" alt=""/>Awesome</a></li>
             </ul>
         </section> -->
-       <section id="categories">
-           <!-- <caption>SECTIONS</caption> -->
-           <ul>
-               <li><a href=""><img src="assets/images/Categories/animals.png" alt=""/>Animals</a></li>
-               <li><a href=""><img src="assets/images/Categories/AnimeManga.png" alt=""/>Anime &#38; Manga</a></li>
-               <li><a href=""><img src="assets/images/Categories/awesome.png" alt=""/>Awesome</a></li>
-               <li><a href=""><img src="assets/images/Categories/car.png" alt=""/>Car</a></li>
-               <li><a href=""><img src="assets/images/Categories/comics.png" alt=""/>Comic</a></li>
-               <li><a href=""><img src="assets/images/Categories/country.png" alt=""/>Country</a></li>
-               <li><a href=""><img src="assets/images/Categories/clasicalArtMemes.png" alt=""/>Clasical Art memes</a></li>
-               <li><a href=""><img src="assets/images/Categories/food.png" alt=""/>Food</a></li>
-               <li><a href=""><img src="assets/images/Categories/gaming.png" alt=""/>Gaming</a></li>
-               <li><a href=""><img src="assets/images/Categories/girly.png" alt=""/>Girly things</a></li>
-               <li><a href=""><img src="assets/images/Categories/historical.png" alt=""/>Historycal Images</a></li>
-               <li><a href=""><img src="assets/images/Categories/horror.png" alt=""/>Horror</a></li>
-               <li><a href=""><img src="assets/images/Categories/movies.png" alt=""/>Movies &#38; TV</a></li>
-               <li><a href=""><img src="assets/images/Categories/music.png" alt=""/>Music</a></li>
-               <li><a href=""><img src="assets/images/Categories/politics.png" alt=""/>Politics</a></li>
-               <li><a href=""><img src="assets/images/Categories/school.png" alt=""/>School</a></li>
-               <li><a href=""><img src="assets/images/Categories/sci-fi.png" alt=""/>Sci-fi</a></li>
-               <li><a href=""><img src="assets/images/Categories/sports.png" alt=""/>Sport</a></li>
-               <li><a href=""><img src="assets/images/Categories/wtf.png" alt=""/>WTF</a></li>
-           </ul>
-           <footer>
-               
-           </footer>
-       </section>
+        <section id="categories">
+            <!-- <caption>SECTIONS</caption> -->
+            <ul>
+                <li><a href=""><img src="assets/images/Categories/animals.png" alt=""/>Animals</a></li>
+                <li><a href=""><img src="assets/images/Categories/AnimeManga.png" alt=""/>Anime &#38; Manga</a></li>
+                <li><a href=""><img src="assets/images/Categories/awesome.png" alt=""/>Awesome</a></li>
+                <li><a href=""><img src="assets/images/Categories/car.png" alt=""/>Car</a></li>
+                <li><a href=""><img src="assets/images/Categories/comics.png" alt=""/>Comic</a></li>
+                <li><a href=""><img src="assets/images/Categories/country.png" alt=""/>Country</a></li>
+                <li><a href=""><img src="assets/images/Categories/clasicalArtMemes.png" alt=""/>Clasical Art memes</a></li>
+                <li><a href=""><img src="assets/images/Categories/food.png" alt=""/>Food</a></li>
+                <li><a href=""><img src="assets/images/Categories/gaming.png" alt=""/>Gaming</a></li>
+                <li><a href=""><img src="assets/images/Categories/girly.png" alt=""/>Girly things</a></li>
+                <li><a href=""><img src="assets/images/Categories/historical.png" alt=""/>Historycal Images</a></li>
+                <li><a href=""><img src="assets/images/Categories/horror.png" alt=""/>Horror</a></li>
+                <li><a href=""><img src="assets/images/Categories/movies.png" alt=""/>Movies &#38; TV</a></li>
+                <li><a href=""><img src="assets/images/Categories/music.png" alt=""/>Music</a></li>
+                <li><a href=""><img src="assets/images/Categories/politics.png" alt=""/>Politics</a></li>
+                <li><a href=""><img src="assets/images/Categories/school.png" alt=""/>School</a></li>
+                <li><a href=""><img src="assets/images/Categories/sci-fi.png" alt=""/>Sci-fi</a></li>
+                <li><a href=""><img src="assets/images/Categories/sports.png" alt=""/>Sport</a></li>
+                <li><a href=""><img src="assets/images/Categories/wtf.png" alt=""/>WTF</a></li>
+            </ul>
+            <footer>
+
+            </footer>
+        </section>
     </aside>
     <main>
-        
+
     </main>
     <div id="post-div">
         <!-- <div id="hashtags"> 
@@ -140,8 +144,27 @@
 
     </div>
     <div>
-        <input id="search-form" type="text" placeholder="Type to search...  ">
+        <input id="search-form" type="text" list="categoryC" placeholder="Type to search...  ">
+        <datalist id='categoryC'>
+            
+        </datalist>
     </div>
+   
+
+    <div id="personal_form">
+        <ul>
+            <li id='myProfile'>
+                <a href="">My Profile</a>
+            </li>
+            <li id='settings'>
+                <a href="">Settings</a>
+            </li>
+            <li id='logout'>
+                <a href="">Logout</a>
+            </li>
+        </ul>
+    </div>
+
     <div id="login-form">
         <form action="">
             <div>
@@ -169,34 +192,34 @@
         </form>
     </div>
     <div id="signUp-form">
-            <form action="">
-                <div>
-                    <h1>Sign Up</h1>
-                    <br>
-                    <a href="http://www.facebook.com"> <img id="facebookIcon" src="assets/images/facebookIcon.png" alt=""> </a>
-                    <a href="https://mail.google.com"> <img id="googleIcon" src="assets/images/googleIcon.png" alt=""> </a>
-                    <br>
-                    <br>
-                    <br><br>
-                </div>
-                <div>
-                    <p>Username</p>
-                    <input id="sign-username" type="text">
-                    <br>
-                    <br>
-                </div>
-                <div>
-                    <p>Password</p>
-                    <input id="sign-password" type="password">
-                    <br>
-                    <br>
-                    <br>
-                </div>
-                <div>
-                    <button id="sign-button" class="button">Sign Up</button>
-                </div>
-            </form>
-        </div>
+        <form action="">
+            <div>
+                <h1>Sign Up</h1>
+                <br>
+                <a href="http://www.facebook.com"> <img id="facebookIcon" src="assets/images/facebookIcon.png" alt=""> </a>
+                <a href="https://mail.google.com"> <img id="googleIcon" src="assets/images/googleIcon.png" alt=""> </a>
+                <br>
+                <br>
+                <br><br>
+            </div>
+            <div>
+                <p>Username</p>
+                <input id="sign-username" type="text">
+                <br>
+                <br>
+            </div>
+            <div>
+                <p>Password</p>
+                <input id="sign-password" type="password">
+                <br>
+                <br>
+                <br>
+            </div>
+            <div>
+                <button id="sign-button" class="button">Sign Up</button>
+            </div>
+        </form>
+    </div>
     <script id="postComments" type="text/x-handlebars-template">
         <table>
             <thead>
@@ -210,16 +233,28 @@
             </thead>
             <tbody>
                 {{#each countries}}
-                    <tr>
-                        <td><img width='20px' src='{{flag}}' /></td>
-                        <td><a class='country-name' href=''>{{name}}</a></td>
-                        <td>{{subregion}}</td>
-                        <td>{{timezones}}</td> 
-                        <td>{{capital}}</td>
-                    </tr>
+                <tr>
+                    <td><img width='20px' src='{{flag}}' /></td>
+                    <td><a class='country-name' href=''>{{name}}</a></td>
+                    <td>{{subregion}}</td>
+                    <td>{{timezones}}</td>
+                    <td>{{capital}}</td>
+                </tr>
                 {{/each}}
             </tbody>
         </table>
     </script>
+
+
+    <!--<script id='search_datalist' type='template'>
+        <datalist id='allCategories'>
+            {{#each categories}}
+            <option value='{{name}}'></option>
+            {{/each}}
+        </datalist>
+    </script>-->
+
+
 </body>
+
 </html>

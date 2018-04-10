@@ -1,14 +1,14 @@
-#topMenu{
+.navMenu{
     position: fixed;
     top: 0;
     left:0;
     width: 100%;
     z-index: 1000;
 }
-#topMenu > ul > li{
+.navMenu > ul > li{
     float: right;
 }
-#topMenu > ul > li:first-child{
+.navMenu > ul > li:first-child{
     float: left;
     display: block;
     color: white;
@@ -16,22 +16,28 @@
     padding: 14px 16px;
     text-decoration: none;
 }
-#topMenu > ul{
+.navMenu > ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: rgb(51,51,51);
 }
-#topMenu > ul > li > a{
+.navMenu > ul > li > a{
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
-#topMenu > ul > li > a:hover{
+.navMenu > ul > li > a:hover{
     background-color: rgb(17,17,17);
+}
+#post-button{
+    background-color: rgb(101, 123, 247)
+}
+#post-button:hover{
+    background-color: rgb(60, 60, 245);
 }
 #categories{
     position: absolute;
@@ -60,9 +66,10 @@
     background-color: rgb(173, 167, 167);
 }
 #categories > ul > li > a > img{
+   width: 25px;
    margin-right: 20px;
 }
-#login-form,#signUp-form{
+#login-form,#signUp-form,#upload{
     display : none;
     position: absolute;
     font-family: sans-serif;
@@ -77,8 +84,8 @@
     border-radius: 2%;
     background-color: white;
 }
-#username, #password{
-    height: 2em;
+#username, #password, #sign-username,#sign-password{
+    height: 2.5em;
 }
 #search-form{
     display: none;
@@ -90,6 +97,35 @@
     padding: 0.3em;
     /* text-align: center; */
     font-size: 1em;
+}
+#personal_form{
+    display: none;
+    position: absolute;
+    font-family: sans-serif;
+    top: 49px;
+    right: 70px;
+    padding: 0.3em;
+    font-size: 1em;
+    padding-right: 4em;
+    border: 1px solid black;
+}
+#personal_form > ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+#personal_form > ul > li > a{
+    display: block;
+    color: black;
+    text-align: right;
+    padding: 14px;
+    text-align: justify;
+    text-decoration: none;
+}
+#personal_form > ul > li > a:hover{
+    background-color: rgb(173, 167, 167);
 }
 .button {
   display: inline-block;
@@ -144,24 +180,26 @@
     display: inline;
     color: grey;
 }
-#post-div > div > img{
+#post-div > div > img,#post-div > div > a > img{
     display: inline-block;
     margin: 20px;
     padding: 10px;
     width: 35px;
     border: 1px solid grey;
 }
-#post-div > div > img:hover{
+#post-div > div > img:hover,#post-div > div > a > img:hover{
     border: 1px solid rgb(70, 70, 70);
 }
 /* hashtags */
 #hashtags{
-    position: absolute;
-    top: 75px;
-    left: 350px;
+
     width: 500px;;
 }
 #hashtags > div{
+    background-color: rgb(253, 239, 239);
     display: inline-block;
-    margin: 2px;
+    margin: 5px;
+}
+#hashtags > div:hover{
+    background-color: rgb(173, 167, 167);
 }
