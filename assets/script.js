@@ -6,6 +6,7 @@ $(function () {
     var nextId = 0;
     $('#topMenu-logged').hide();
     $('#upload').hide();
+    $('#settings-div').hide();
 
     $('#login').on('click', function (event) {
 
@@ -46,9 +47,9 @@ $(function () {
         event.originalEvent.preventDefault();
         isPersonal = !isPersonal;
         if (isPersonal) {
-            $('#personal_form').show(1000);
+            $('#personal_form').show();
         } else {
-            $('#personal_form').hide(1000);
+            $('#personal_form').hide();
         }
     });
 
@@ -83,27 +84,29 @@ $(function () {
 
     $('#upload-button').on('click', function (event) {
         event.originalEvent.preventDefault();
+        $('#singlePost-div').hide();
         var img = $('#img_url').val();
         var title = $('#title').val();
+        var categor = $('#category').val();
         var userId = JSON.parse(sessionStorage.getItem('loggedUserId'));
         userStorage.addNewPost(id, title, img);
         postStorage.addPost(title, img)
         var points = 0;
         // var currPost = postStorage.findPost(title);
 
-        var postEl = `<div id="${++nextId}"> 
+        var postEl = `<div> 
         </div>
         <h1 id="caption">${title}</h1>
         <img src="${img}" alt=""/>
-        <h3 id="category-text">funny despicable</h3>
-        <p>${this.points}</p>
-        <p>&middot;</p>
-        <p>39 comments</p>
-        <div class="coments">
+        <h3 id="category-text">${categor}/h3>
+        <p>${points}points  &middot;  39 comments</p>
+        <div id="${++nextId}" class="coments">
             <img src="assets/images/arrows/arrow up.png" alt="">
             <img src="assets/images/arrows/arrow down.png" alt="">
             <a href=""><img src="assets/images/arrows/comment.png" alt=""></a>
         </div>`;
+        // <p>&middot;</p>
+        // <p>39 comments</p>
 
 
 
@@ -144,6 +147,22 @@ $(function () {
     $.get('assets/categories.json').then(function(c){
         categories = categories.concat(c);
         showCategoriesList(categories);
+    })
+    $('#settings').on('click',function(event){
+        event.originalEvent.preventDefault();
+        $('#settings-div').show();
+        $('#post-div').hide();
+    });
+    $('#save-changes').on('click',function(event){
+        event.originalEvent.preventDefault();
+        $('#personal_form').hide();
+        var profilePic = $('#profile-picture').val();
+        if(profilePic.trim().length == 0){
+            return
+        }
+        $('#userPhoto > a > img').attr('src', profilePic);
+        $('#settings-div').hide();
+        $('#post-div').show();
     })
 
     /*function showCountryList(categories) {
