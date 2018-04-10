@@ -1,11 +1,59 @@
 [
     {
-        "name": "Animals" 
+        "name": "Animals"
+    },
+    {
+        "name": "Anime & Manga"
+    },
+    {
+        "name": "Awesome"
     },
     {
         "name": "Car"
     },
     {
         "name": "Comic"
+    },
+    {
+        "name": "Country"
+    },
+    {
+        "name": "Clasical Art memes"
+    },
+    {
+        "name": "Food"
+    },
+    {
+        "name": "Gaming"
+    },
+    {
+        "name": "Girly things"
+    },
+    {
+        "name": "Historycal Images"
+    },
+    {
+        "name": "Horror"
+    },
+    {
+        "name": "Movies & TV"
+    },
+    {
+        "name": "Music"
+    },
+    {
+        "name": "Politics"
+    },
+    {
+        "name": "School"
+    },
+    {
+        "name": "Sci-fi"
+    },
+    {
+        "name": "Sport"
+    },
+    {
+        "name": "WTF"
     }
 ]

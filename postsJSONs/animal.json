@@ -1,0 +1,32 @@
+[
+    {
+        "title": "I'm not even mad",
+        "image": "assets/images/picturesForCategories/animal1.png",
+        "description": "",
+        "points": "26",
+        "comments": "2",
+        "category": "Animals",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "Omgosh",
+        "image": "assets/images/picturesForCategories/animal2.png",
+        "description": "",
+        "points": "46",
+        "comments": "0",
+        "category": "Animals",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "See the Lemon, Feel the Lemon, BE THE LEMON,",
+        "image": "assets/images/picturesForCategories/animal3.png",
+        "description": "",
+        "points": "199",
+        "comments": "3",
+        "category": "Animals",
+        "hashTags": "[]",
+        "owner": "null"
+    }
+]

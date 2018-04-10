@@ -1,0 +1,32 @@
+[
+    {
+        "title": "I like the atmosphere",
+        "image": "assets/images/picturesForCategories/anime1.png",
+        "description": "",
+        "points": "93",
+        "comments": "12",
+        "category": "Anime & Manga",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "Daily dose of calcium #3",
+        "image": "assets/images/picturesForCategories/anime2.png",
+        "description": "",
+        "points": "63",
+        "comments": "21",
+        "category": "AnimaAnime & Mangals",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "Mitty, why?!",
+        "image": "assets/images/picturesForCategories/anime3.png",
+        "description": "",
+        "points": "85",
+        "comments": "10",
+        "category": "Anime & Manga",
+        "hashTags": "[]",
+        "owner": "null"
+    }
+]
