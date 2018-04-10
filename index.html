@@ -6,33 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/style.css">
+    <script src="services/postService.js"></script>
+    <script src="services/userService.js"></script>
     <script src="assets/script.js"></script>
-    <title>Document</title>
+    <!-- <script src="assets/app.js"></script> -->
+    <script src="post.json"></script>
+    <title>9GAG</title>
 </head>
 <body>
     <!-- staroto -->
     <header>
-        <nav id="topMenu">
+        <nav id="topMenu" class="navMenu">
             <ul>
                 <li id="icon">9GAG</li>
                 <li id="login"><a href="">Log in</a></li>
                 <li id="signUp"><a href="">Sign up</a></li>
-                <li id="search"><a href="">&#128269;</a></li>
+                <li id="search" class="search-btn"><a href="">&#128269;</a></li>
             </ul>
         </nav>
+        <nav id="topMenu-logged" class="navMenu">
+            <ul>
+                <li id="icon-logged">9GAG</li>
+                <li id="post-button"><a href="">&plus; Upload</a></li>
+                <li><a href=""><img width="16px" src="https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/user-512.png" alt=""></a></li>
+                <li id="search-logged" class="search-btn"><a href="">&#128269;</a></li>
+            </ul>
+        </nav>
+        <!-- loggedNav -->
+        <!-- <nav id="topMenu">
+            <ul>
+            <li id="icon">9GAG</li>
+            <li id="search"><a href="">&#43;Upload</a></li>
+            <li id="search"><a href="">&#128269;</a></li>
+            <li id="search"><a href=""><img width="18px" src="assets/images/Categories/animals.png" alt=""></a></li>
+            <li id="search"><a href="">&#128269;</a></li>
+        </nav> -->
     </header>
-    <div id="hashtags"> 
-        <script>
-            $(function(){
-                var hashtag= '';
-                var name = 'golem';
-                for(var i = 0;i<20;i++){
-                    hashtag += `<div><p>${name}</p></div>`;
-                }
-                $('#hashtags').html(hashtag);
-            });
-        </script>
-    </div>
     <aside>
         <!-- <section id="popular">
             <ul>
@@ -41,27 +50,36 @@
                 <li><a href=""></a></li>
             </ul>
         </section> -->
+        <!-- <section id="popular">
+            <caption>POPULAR</caption>
+            <ul>
+                <li><a href=""><img src="assets/images/Categories/animals.png" alt=""/>Animals</a></li>
+                <li><a href=""><img src="assets/images/Categories/AnimeManga.png" alt=""/>Anime &#38; Manga</a></li>
+                <li><a href=""><img src="assets/images/Categories/awesome.png" alt=""/>Awesome</a></li>
+            </ul>
+        </section> -->
        <section id="categories">
+           <!-- <caption>SECTIONS</caption> -->
            <ul>
-               <li><a href=""><img width="25px" src="assets/images/Categories/animals.png" alt=""/>Animals</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/AnimeManga.png" alt=""/>Anime &#38; Manga</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/awesome.png" alt=""/>Awesome</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/car.png" alt=""/>Car</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/comics.png" alt=""/>Comic</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/country.png" alt=""/>Country</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/clasicalArtMemes.png" alt=""/>Clasical Art memes</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/food.png" alt=""/>Food</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/gaming.png" alt=""/>Gaming</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/girly.png" alt=""/>Girly things</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/historical.png" alt=""/>Historycal Images</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/horror.png" alt=""/>Horror</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/movies.png" alt=""/>Movies &#38; TV</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/music.png" alt=""/>Music</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/politics.png" alt=""/>Politics</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/school.png" alt=""/>School</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/sci-fi.png" alt=""/>Sci-fi</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/sports.png" alt=""/>Sport</a></li>
-               <li><a href=""><img width="25px" src="assets/images/Categories/wtf.png" alt=""/>WTF</a></li>
+               <li><a href=""><img src="assets/images/Categories/animals.png" alt=""/>Animals</a></li>
+               <li><a href=""><img src="assets/images/Categories/AnimeManga.png" alt=""/>Anime &#38; Manga</a></li>
+               <li><a href=""><img src="assets/images/Categories/awesome.png" alt=""/>Awesome</a></li>
+               <li><a href=""><img src="assets/images/Categories/car.png" alt=""/>Car</a></li>
+               <li><a href=""><img src="assets/images/Categories/comics.png" alt=""/>Comic</a></li>
+               <li><a href=""><img src="assets/images/Categories/country.png" alt=""/>Country</a></li>
+               <li><a href=""><img src="assets/images/Categories/clasicalArtMemes.png" alt=""/>Clasical Art memes</a></li>
+               <li><a href=""><img src="assets/images/Categories/food.png" alt=""/>Food</a></li>
+               <li><a href=""><img src="assets/images/Categories/gaming.png" alt=""/>Gaming</a></li>
+               <li><a href=""><img src="assets/images/Categories/girly.png" alt=""/>Girly things</a></li>
+               <li><a href=""><img src="assets/images/Categories/historical.png" alt=""/>Historycal Images</a></li>
+               <li><a href=""><img src="assets/images/Categories/horror.png" alt=""/>Horror</a></li>
+               <li><a href=""><img src="assets/images/Categories/movies.png" alt=""/>Movies &#38; TV</a></li>
+               <li><a href=""><img src="assets/images/Categories/music.png" alt=""/>Music</a></li>
+               <li><a href=""><img src="assets/images/Categories/politics.png" alt=""/>Politics</a></li>
+               <li><a href=""><img src="assets/images/Categories/school.png" alt=""/>School</a></li>
+               <li><a href=""><img src="assets/images/Categories/sci-fi.png" alt=""/>Sci-fi</a></li>
+               <li><a href=""><img src="assets/images/Categories/sports.png" alt=""/>Sport</a></li>
+               <li><a href=""><img src="assets/images/Categories/wtf.png" alt=""/>WTF</a></li>
            </ul>
            <footer>
                
@@ -72,7 +90,9 @@
         
     </main>
     <div id="post-div">
-        <h1 id="caption">Dispicabe me</h1>
+        <!-- <div id="hashtags"> 
+        </div> -->
+        <!-- <h1 id="caption">Dispicabe me</h1>
         <img src="http://www.slashfilm.com/wp/wp-content/images/despicableme-gru-drink.jpg" alt="">
         <h3 id="category-text">funny despicable</h3>
         <p>808 points</p>
@@ -83,6 +103,41 @@
             <img src="assets/images/arrows/arrow down.png" alt="">
             <img src="assets/images/arrows/comment.png" alt="">
         </div>
+        <h1 id="caption">NBA</h1>
+        <img src="https://i.ytimg.com/vi/KMZ07OpmwTw/hqdefault.jpg" alt="">
+        <h3 id="category-text">NBA Basketball</h3>
+        <p>509 points</p>
+        <p>&middot;</p>
+        <p>8 comments</p>
+        <div>
+            <img src="assets/images/arrows/arrow up.png" alt="">
+            <img src="assets/images/arrows/arrow down.png" alt="">
+            <img src="assets/images/arrows/comment.png" alt="">
+        </div>
+        <h1 id="caption">Monkeyy</h1>
+        <img src="https://steefun.com/uploads/2018/03/funny-Whatsapp-dps-coolwhatsappstatus-001.jpg" alt="">
+        <h3 id="category-text">funny</h3>
+        <p>68 points</p>
+        <p>&middot;</p>
+        <p>29 comments</p>
+        <div>
+            <img src="assets/images/arrows/arrow up.png" alt="">
+            <img src="assets/images/arrows/arrow down.png" alt="">
+            <img src="assets/images/arrows/comment.png" alt="">
+        </div> -->
+    </div>
+    <div id="upload">
+        <input id="img_url" type="text" placeholder="Url">
+        <br>
+        <br>
+        <input id="title" type="text" placeholder="Title">
+        <br><br>
+        <input id="category" type="text" placeholder="Category">
+        <br><br><br>
+        <button id="upload-button" class="button">Upload</button>
+    </div>
+    <div id="singlePost-div">
+
     </div>
     <div>
         <input id="search-form" type="text" placeholder="Type to search...  ">
@@ -109,7 +164,7 @@
                 <br>
             </div>
             <div>
-                <button class="button">Login</button>
+                <button id="login-btn" class="button">Login</button>
             </div>
         </form>
     </div>
@@ -138,9 +193,33 @@
                     <br>
                 </div>
                 <div>
-                    <button class="button">Sign Up</button>
+                    <button id="sign-button" class="button">Sign Up</button>
                 </div>
             </form>
         </div>
+    <script id="postComments" type="text/x-handlebars-template">
+        <table>
+            <thead>
+                <tr>
+                    <th>Flag</th>
+                    <th>Name</th>
+                    <th>Region</th>
+                    <th>Timezone</th>
+                    <th>Capital</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each countries}}
+                    <tr>
+                        <td><img width='20px' src='{{flag}}' /></td>
+                        <td><a class='country-name' href=''>{{name}}</a></td>
+                        <td>{{subregion}}</td>
+                        <td>{{timezones}}</td> 
+                        <td>{{capital}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </script>
 </body>
 </html>
