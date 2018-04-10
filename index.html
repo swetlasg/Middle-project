@@ -164,7 +164,39 @@
             </li>
         </ul>
     </div>
+    <div id="profile-div">
 
+    </div>
+    <div id="settings-div">
+        <form action="">
+            <div>
+                <h1>Profile-Account</h1>
+                <br>
+            </div>
+            <div>
+                <p>Username</p>
+                <input id="change-username" type="text">
+                <br>
+                <br>
+            </div>
+            <div>
+                <p>Password</p>
+                <input id="change-password" type="password">
+                <br>
+                <br>
+                <br>
+            </div>
+            <div>
+                <p>Picture</p>
+                <input id="profile-picture" type="text">
+                <br>
+                <br>
+                <br>
+            </div>
+            <div>
+                <button id="save-changes" class="button">Save Changes</button>
+            </div>
+    </div>
     <div id="login-form">
         <form action="">
             <div>
@@ -220,30 +252,7 @@
             </div>
         </form>
     </div>
-    <script id="postComments" type="text/x-handlebars-template">
-        <table>
-            <thead>
-                <tr>
-                    <th>Flag</th>
-                    <th>Name</th>
-                    <th>Region</th>
-                    <th>Timezone</th>
-                    <th>Capital</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each countries}}
-                <tr>
-                    <td><img width='20px' src='{{flag}}' /></td>
-                    <td><a class='country-name' href=''>{{name}}</a></td>
-                    <td>{{subregion}}</td>
-                    <td>{{timezones}}</td>
-                    <td>{{capital}}</td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-    </script>
+    
 
 
     <!--<script id='search_datalist' type='template'>
