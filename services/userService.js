@@ -1,7 +1,7 @@
 var userStorage = (function () {
 
     User.nextId = 0;
-    
+
     function User(username, password) {
         this.id = ++User.nextId;
         this.username = username;
@@ -47,12 +47,12 @@ var userStorage = (function () {
         }
     }
     UserStorage.prototype.getLoggedUser = function () {
-		var loggedUser = sessionStorage.getItem('loggedUser');
-		if (loggedUser) {
-			return JSON.parse(loggedUser);
-		} else {
-			return null;
-		}
+        var loggedUser = sessionStorage.getItem('loggedUser');
+        if (loggedUser) {
+            return JSON.parse(loggedUser);
+        } else {
+            return null;
+        }
     }
 
 
