@@ -23,7 +23,6 @@ var userStorage = (function () {
             this.users = [];
         }
     }
-
     UserStorage.prototype.getUserById = function (id) {
         return this.users.find(u => u.id == id);
     }
@@ -43,11 +42,10 @@ var userStorage = (function () {
             sessionStorage.setItem('loggedUser', JSON.stringify(user));
             return user;
         } else {
-            sessionStorage.setItem('loggedUserId', null);
+            sessionStorage.setItem('loggedUser', null);
             return null;
         }
     }
-
     UserStorage.prototype.getLoggedUser = function () {
 		var loggedUser = sessionStorage.getItem('loggedUser');
 		if (loggedUser) {
@@ -56,6 +54,7 @@ var userStorage = (function () {
 			return null;
 		}
     }
+
 
     UserStorage.prototype.deleteAccount = function () {
         var index = this.users.findIndex((user) => user.username === username && user.password === password);
