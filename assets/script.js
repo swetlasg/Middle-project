@@ -485,8 +485,11 @@ $(function () {
 
     $('#deleteAccount').on('click', function(event){
         event.originalEvent.preventDefault();
-
         userStorage.deleteAccount();
+        $('#upload').hide();
+        $('#topMenu').show();
+        $('#topMenu-logged').hide();
+        sessionStorage.setItem('loggedUser', null);
     });
 
     /*function showCountryList(categories) {
