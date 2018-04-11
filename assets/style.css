@@ -88,6 +88,7 @@
     border: 3px solid black; 
     border-radius: 2%;
     background-color: white;
+    z-index: 500;
 }
 #username, #password, #sign-username,#sign-password,#change-username,#change-password,#profile-picture{
     height: 2.5em;

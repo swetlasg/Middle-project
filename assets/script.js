@@ -478,10 +478,16 @@ $(function () {
         $('#pc-show').attr('src',profilePic);
         $('#settings-div').hide();
         $('#post-div').show();
-    })
+    });
     $('.icon').on('click',function(){
         showAllPosts(post);
-    })
+    });
+
+    $('#deleteAccount').on('click', function(event){
+        event.originalEvent.preventDefault();
+
+        userStorage.deleteAccount();
+    });
 
     /*function showCountryList(categories) {
         var templateText = $('#search_datalist').text();
