@@ -4,6 +4,7 @@ $(function () {
     var user;
     var id = 1;
     var nextId = 0;
+    var name;
 
     $('#profile-div').hide();
     $('#topMenu-logged').hide();
@@ -156,6 +157,44 @@ $(function () {
         categories = categories.concat(c);
         showCategoriesList(categories);
     })
+    name = 'anime'
+
+    var categoryPost = []; 
+    function showCategory(){
+        var oneCategoryPosts = '';
+        categoryPost.forEach(p => {
+            oneCategoryPosts += `<div> 
+            </div>
+            <h1 id="caption">${p.title}</h1>
+            <img src="${p.image}" alt=""/>
+            <h3 id="category-text">${p.category}</h3>
+            <p>${p.points}points  &middot;  39 comments</p>
+            <div id="${++nextId}" class="coments">
+                <img src="assets/images/arrows/arrow up.png" alt="">
+                <img src="assets/images/arrows/arrow down.png" alt="">
+                <a href=""><img src="assets/images/arrows/comment.png" alt=""></a>
+            </div>`;
+        });
+        console.log(oneCategoryPosts);
+        $('#post-div').html(oneCategoryPosts);
+    }
+    $('#animals').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'animal';
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+        console.log(name);
+    });
+    showCategory(categoryPost);
+    // var name = 'anime';
+    $.get('postsJSONs/'+ name + '.json').then(function(p){
+        categoryPost = categoryPost.concat(p);
+        showCategory(categoryPost);
+    });
+
+
 
     $('#myProfile').on('click',function(event){
         event.originalEvent.preventDefault();
@@ -180,10 +219,15 @@ $(function () {
         event.originalEvent.preventDefault();
         $('#personal_form').hide();
         var profilePic = $('#profile-picture').val();
-        if(profilePic.trim().length == 0){
-            return
-        }
+        // if(profilePic.trim().length == 0){
+        //     return
+        // }
         $('#userPhoto > a > img').attr('src', profilePic);
+        var nameUser = $('#username').val();
+        // if(nameUser.trim().length == 0){
+        //     return
+        // }
+        $('#pc-username').text(nameUser);
         $('#pc-show').attr('src',profilePic);
         $('#settings-div').hide();
         $('#post-div').show();
