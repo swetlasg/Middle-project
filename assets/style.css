@@ -84,7 +84,7 @@
     border-radius: 2%;
     background-color: white;
 }
-#username, #password, #sign-username,#sign-password{
+#username, #password, #sign-username,#sign-password,#change-username,#change-password,#profile-picture{
     height: 2.5em;
 }
 #search-form{
@@ -98,15 +98,19 @@
     /* text-align: center; */
     font-size: 1em;
 }
+
+
+/* personal form */
+
 #personal_form{
     display: none;
     position: absolute;
     font-family: sans-serif;
     top: 49px;
-    right: 70px;
-    padding: 0.3em;
+    right: 40px;
+    /* padding: 0.3em; */
     font-size: 1em;
-    padding-right: 4em;
+    /* padding-right: 4em; */
     border: 1px solid black;
 }
 #personal_form > ul{
@@ -121,10 +125,11 @@
     color: black;
     text-align: right;
     padding: 14px;
+    padding-right: 58px;
     text-align: justify;
     text-decoration: none;
 }
-#personal_form > ul > li > a:hover{
+#personal_form > ul > li:hover{
     background-color: rgb(173, 167, 167);
 }
 .button {
@@ -163,6 +168,8 @@
     left: 220px;
 }
 /* za post divovete */
+
+
 #post-div{
     width: 700px;
     position: absolute;
@@ -180,18 +187,27 @@
     display: inline;
     color: grey;
 }
-#post-div > div > img,#post-div > div > a > img{
+div.coments > img, div.coments > a > img{
     display: inline-block;
     margin: 20px;
     padding: 10px;
     width: 35px;
     border: 1px solid grey;
 }
-#post-div > div > img:hover,#post-div > div > a > img:hover{
+div.coments > img:hover,div.coments > a > img:hover{
     border: 1px solid rgb(70, 70, 70);
 }
+
+
+/* settings-div i profile-div */
+#settings-div,#profile-div{
+    width: 700px;
+    position: absolute;
+    top: 100px;
+    left: 350px;
+}
 /* hashtags */
-#hashtags{
+/* #hashtags{
 
     width: 500px;;
 }
@@ -202,4 +218,46 @@
 }
 #hashtags > div:hover{
     background-color: rgb(173, 167, 167);
+} */
+
+/* profile div */
+
+#pc-show{
+    width: 105px;
+    margin-left: 50px;
+    border-radius: 50%;
+}
+#profile-div > div > h1{
+    float: right;
+    font-family: sans-serif;
+    margin-right: 240px;
+    margin-top: 35px;
+}
+#profile-nav > ul > li{
+    display: inline-block;
+    padding: 10px 24px;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+}
+#profile-nav > ul > li > a{
+    display: block;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    color: rgb(80, 80, 80);
+    text-align: center;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+}
+#profile-nav > ul > li > a:hover{
+    color: black;
+}
+#overview,#posts,#comments,#upvotes{
+    border-top: 1px solid rgb(80, 80, 80);
+    width: 700px;
+    position: absolute;
+    top : 170px;
+    left: 50px;
+    padding: 20px;
+    overflow: hidden;
 }

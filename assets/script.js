@@ -4,6 +4,8 @@ $(function () {
     var user;
     var id = 1;
     var nextId = 0;
+
+    $('#profile-div').hide();
     $('#topMenu-logged').hide();
     $('#upload').hide();
     $('#settings-div').hide();
@@ -148,11 +150,26 @@ $(function () {
         categories = categories.concat(c);
         showCategoriesList(categories);
     })
+
+    $('#myProfile').on('click',function(event){
+        event.originalEvent.preventDefault();
+        $('#profile-div').show();
+        $('#settings-div').hide();
+        $('#post-div').hide();
+        $('#personal_form').hide();
+        isPersonal = !isPersonal;
+    });
+
+
     $('#settings').on('click',function(event){
         event.originalEvent.preventDefault();
         $('#settings-div').show();
+        $('#profile-div').hide();
         $('#post-div').hide();
+        $('#personal_form').hide();
+        isPersonal = !isPersonal;
     });
+
     $('#save-changes').on('click',function(event){
         event.originalEvent.preventDefault();
         $('#personal_form').hide();
