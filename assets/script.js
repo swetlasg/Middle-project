@@ -485,11 +485,16 @@ $(function () {
 
     $('#deleteAccount').on('click', function(event){
         event.originalEvent.preventDefault();
-        userStorage.deleteAccount();
+        alert("Are you sure ?");
+       //userStorage.deleteAccount();
         $('#upload').hide();
         $('#topMenu').show();
         $('#topMenu-logged').hide();
-        sessionStorage.setItem('loggedUser', null);
+        $('#personal_form').hide();
+        $('#profile-div').hide();
+        $('#settings-div').hide();
+        $("#post-div").show();
+        localStorage.setItem('loggedUser', null);
     });
 
     /*function showCountryList(categories) {
