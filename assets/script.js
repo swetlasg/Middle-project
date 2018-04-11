@@ -122,6 +122,7 @@ $(function () {
         // userStorage.addNewPost(id, title, img);
         postStorage.addPost(title, img)
         var points = 0;
+        var comments = 0;
         // var currPost = postStorage.findPost(title);
 
         postEl = `<div> 
@@ -129,10 +130,10 @@ $(function () {
         <h1 id="caption">${title}</h1>
         <img src="${img}" alt=""/>
         <h3 id="category-text">${categor}</h3>
-        <p>${points}points  &middot;  39 comments</p>
+        <p>${points} points  &middot;  ${comments} comments</p>
         <div id="${++nextId}" class="coments">
-            <img src="assets/images/arrows/arrow up.png" alt="">
-            <img src="assets/images/arrows/arrow down.png" alt="">
+            <img class='up' src="assets/images/arrows/arrow up.png" alt="">
+            <img class='down' src="assets/images/arrows/arrow down.png" alt="">
             <a href=""><img src="assets/images/arrows/comment.png" alt=""></a>
         </div>`;
         // <p>&middot;</p>
@@ -160,7 +161,7 @@ $(function () {
             <h1 id="caption">${po.title}</h1>
             <img src="${po.image}" alt=""/>
             <h3 id="category-text">${po.category}</h3>
-            <p>${po.points}points  &middot;  39 comments</p>
+            <p>${po.points} points  &middot; ${po.comments} comments</p>
             <div id="${++nextId}" class="coments">
                 <img src="assets/images/arrows/arrow up.png" alt="">
                 <img src="assets/images/arrows/arrow down.png" alt="">
@@ -197,7 +198,19 @@ $(function () {
     $.get('assets/categories.json').then(function(c){
         categories = categories.concat(c);
         showCategoriesList(categories);
-    })
+    });
+
+    /*$('#search-form').on('input', function(){
+        var cat = $(this).val();
+
+        $("#categoryC").find("option").each(function() {
+            if ($(this).val() == cat) {
+              showCategory(cat);
+            }
+          })
+
+    });*/
+
     // name = 'anime';
 
     var categoryPost = []; 
@@ -209,7 +222,7 @@ $(function () {
             <h1 id="caption">${p.title}</h1>
             <img src="${p.image}" alt=""/>
             <h3 id="category-text">${p.category}</h3>
-            <p>${p.points}points  &middot;  39 comments</p>
+            <p>${p.points} points  &middot; ${p.comments} comments</p>
             <div id="${++nextId}" class="coments">
                 <img src="assets/images/arrows/arrow up.png" alt="">
                 <img src="assets/images/arrows/arrow down.png" alt="">
@@ -219,6 +232,22 @@ $(function () {
         // console.log(oneCategoryPosts);
         $('#post-div').html(oneCategoryPosts);
     }
+
+    $("#search-form").on('input', function (event) {
+        event.originalEvent.preventDefault();
+        var val = this.value;
+        categoryPost = [];
+        
+        if($('#categoryC').find('option').filter(function(){
+            return this.value.toUpperCase() === val.toUpperCase();        
+        }).length) {
+            $.get('postsJSONs/'+ val + '.json').then(function(o){
+                categoryPost = categoryPost.concat(o);
+                showCategory(categoryPost);
+                
+            });
+        }
+    });
 
     // json controllera 
 
