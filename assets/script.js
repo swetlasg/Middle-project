@@ -10,6 +10,12 @@ $(function () {
     $('#upload').hide();
     $('#settings-div').hide();
 
+    if (userStorage.getLoggedUser()) {
+		user = userStorage.getLoggedUser();
+		$('#topMenu').hide();
+		$('#topMenu-logged').show();
+	}
+
     $('#login').on('click', function (event) {
 
         event.originalEvent.preventDefault();
@@ -178,6 +184,7 @@ $(function () {
             return
         }
         $('#userPhoto > a > img').attr('src', profilePic);
+        $('#pc-show').attr('src',profilePic);
         $('#settings-div').hide();
         $('#post-div').show();
     })
