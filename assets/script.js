@@ -1,10 +1,13 @@
 $(function () {
     var isSearching = false;
     var post = [];
+    var pushed = false;
     var user;
-    var id = 1;
+    // var id = 1;
     var nextId = 0;
     var name;
+    var profileName;
+    var postEl = '';
 
     $('#profile-div').hide();
     $('#topMenu-logged').hide();
@@ -30,6 +33,7 @@ $(function () {
                 $('#login-form').hide();
                 $('#topMenu').hide();
                 $('#topMenu-logged').show();
+                profileName = userStorage.getLoggedUser().username;
             }
             user = userStorage.logIn(username, password);
             // id = user.id;
@@ -85,29 +89,46 @@ $(function () {
 
     $('#post-button').on('click', function (event) {
         event.originalEvent.preventDefault();
-        $('#upload').show(800);
+        if(pushed){
+            $('#upload').hide(800);
+        } else {
+            $('#upload').show(800);
+        }
+        pushed = !pushed;
         $('#login-form').hide();
         $('#signUp-form').hide();
     });
 
 
+    
+    // });
+    // var hashtag= '';
+    // var name = 'golem';
+    // for(var i = 0;i<20;i++){
+    //     hashtag += <div><p>${name}</p></div>;
+    // }
+    // $('#hashtags').html(hashtag);
+
+    // var postovebrat = [];
     $('#upload-button').on('click', function (event) {
         event.originalEvent.preventDefault();
         $('#singlePost-div').hide();
         var img = $('#img_url').val();
         var title = $('#title').val();
         var categor = $('#category').val();
-        var userId = JSON.parse(sessionStorage.getItem('loggedUserId'));
-        userStorage.addNewPost(id, title, img);
+        var currentUser = JSON.parse(sessionStorage.getItem('loggedUser'));
+        var userId = userStorage.getLoggedUser().id;
+        userStorage.addNewPost(userId,title,img);
+        // userStorage.addNewPost(id, title, img);
         postStorage.addPost(title, img)
         var points = 0;
         // var currPost = postStorage.findPost(title);
 
-        var postEl = `<div> 
+        postEl = `<div> 
         </div>
         <h1 id="caption">${title}</h1>
         <img src="${img}" alt=""/>
-        <h3 id="category-text">${categor}/h3>
+        <h3 id="category-text">${categor}</h3>
         <p>${points}points  &middot;  39 comments</p>
         <div id="${++nextId}" class="coments">
             <img src="assets/images/arrows/arrow up.png" alt="">
@@ -119,9 +140,9 @@ $(function () {
 
 
 
-        post.unshift(postEl);
-        var html = post.join();
-        $('#post-div').html(html);
+        // post.unshift(postEl);
+        // var html = post.join();
+        $('#post-div').prepend(postEl);
         $('#post-div').show();
         $('#upload').hide();
         $('.coments > a > img').on('click', function (event) {
@@ -131,15 +152,35 @@ $(function () {
         });
 
     });
-    // });
-    // var hashtag= '';
-    // var name = 'golem';
-    // for(var i = 0;i<20;i++){
-    //     hashtag += <div><p>${name}</p></div>;
-    // }
-    // $('#hashtags').html(hashtag);
+    function showAllPosts(){
+        var allpostove = '';
+        post.forEach(po =>{
+            allpostove +=  `<div> 
+            </div>
+            <h1 id="caption">${po.title}</h1>
+            <img src="${po.image}" alt=""/>
+            <h3 id="category-text">${po.category}</h3>
+            <p>${po.points}points  &middot;  39 comments</p>
+            <div id="${++nextId}" class="coments">
+                <img src="assets/images/arrows/arrow up.png" alt="">
+                <img src="assets/images/arrows/arrow down.png" alt="">
+                <a href=""><img src="assets/images/arrows/comment.png" alt=""></a>
+            </div>`;
+        });
+        $('#post-div').html(allpostove);
+    } 
+    showAllPosts(post);
+
+    $.get('../biggestJSON/all.json').then(function(po){
+        post = post.concat(po);
+        showAllPosts(post);
+    });
+
+
+    showAllPosts(post);
 
     var categories = [];
+
 
     function showCategoriesList(){
         var allCategories = '';
@@ -147,7 +188,7 @@ $(function () {
             allCategories += `<option value='${c.name}'></option>`;
         });
         //allCategories +='</datalist>';\
-        console.log(allCategories);
+        // console.log(allCategories);
         $('#categoryC').html(allCategories);
     };
 
@@ -157,7 +198,7 @@ $(function () {
         categories = categories.concat(c);
         showCategoriesList(categories);
     })
-    name = 'anime'
+    // name = 'anime';
 
     var categoryPost = []; 
     function showCategory(){
@@ -175,24 +216,201 @@ $(function () {
                 <a href=""><img src="assets/images/arrows/comment.png" alt=""></a>
             </div>`;
         });
-        console.log(oneCategoryPosts);
+        // console.log(oneCategoryPosts);
         $('#post-div').html(oneCategoryPosts);
     }
+
+    // json controllera 
+
+
     $('#animals').on('click',function(event){
         event.originalEvent.preventDefault();
         name = 'animal';
+        categoryPost = [];
         $.get('postsJSONs/'+ name + '.json').then(function(p){
             categoryPost = categoryPost.concat(p);
             showCategory(categoryPost);
         });
-        console.log(name);
     });
-    showCategory(categoryPost);
-    // var name = 'anime';
-    $.get('postsJSONs/'+ name + '.json').then(function(p){
-        categoryPost = categoryPost.concat(p);
-        showCategory(categoryPost);
+
+
+    $('#animeManga').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'anime';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
     });
+
+    $('#awesome').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'awesome';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+
+    $('#car').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'car';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+
+    $('#comics').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'comic';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+
+    $('#country').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'country';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+
+    $('#clasic').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'clasicalArt';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+
+    $('#food').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'food';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+
+    $('#gaming').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'gaming';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+    $('#girly').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'girly';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+    $('#historycal').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'historycal';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+    $('#horror').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'horror';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+    $('#movies').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'movies';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+    $('#music').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'music';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+    $('#politics').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'politics';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+    $('#school').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'school';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    }); $('#sci-fi').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'sci-fi';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+    $('#sports').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'sport';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+    $('#wtf').on('click',function(event){
+        event.originalEvent.preventDefault();
+        name = 'wtf';
+        categoryPost = [];
+        $.get('postsJSONs/'+ name + '.json').then(function(p){
+            categoryPost = categoryPost.concat(p);
+            showCategory(categoryPost);
+        });
+    });
+    // krai na json controllera
+
+
+    // showCategory(categoryPost);
+    // // var name = 'anime';
+    // $.get('postsJSONs/'+ name + '.json').then(function(p){
+    //     categoryPost = categoryPost.concat(p);
+    //     showCategory(categoryPost);
+    // });
 
 
 
@@ -223,11 +441,11 @@ $(function () {
         //     return
         // }
         $('#userPhoto > a > img').attr('src', profilePic);
-        var nameUser = $('#username').val();
+        // var nameUser = $('#username').val();
         // if(nameUser.trim().length == 0){
         //     return
         // }
-        $('#pc-username').text(nameUser);
+        $('#pc-username').text(profileName);
         $('#pc-show').attr('src',profilePic);
         $('#settings-div').hide();
         $('#post-div').show();
