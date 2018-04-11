@@ -35,7 +35,7 @@ var userStorage = (function () {
     }
 
     UserStorage.prototype.logIn = function (username, password) {
-        return this.users.find(function (user) {
+        var user = this.users.find(function (user) {
             return user.username === username && user.password === password;
         });
         if (user) {
@@ -46,6 +46,15 @@ var userStorage = (function () {
             return null;
         }
     }
+    UserStorage.prototype.getLoggedUser = function () {
+		var loggedUser = sessionStorage.getItem('loggedUser');
+		if (loggedUser) {
+			return JSON.parse(loggedUser);
+		} else {
+			return null;
+		}
+    }
+
 
     UserStorage.prototype.deleteAccount = function () {
         var index = this.users.findIndex((user) => user.username === username && user.password === password);
@@ -63,7 +72,6 @@ var userStorage = (function () {
         var newPost = postStorage.addPost(title, image);
         user.postList.push(newPost);
         localStorage.setItem('users', JSON.stringify(this.users));
-        return
     }
 
     // UserStorage.prototype.PostComments = function(userId,coment){
