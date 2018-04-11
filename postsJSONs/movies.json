@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Just for sure",
+        "image": "assets/images/picturesForCategories/movie1.png",
+        "description": "",
+        "points": "47",
+        "comments": "1",
+        "category": "Movies & TV",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "A relationship has never been so complicated",
+        "image": "assets/images/picturesForCategories/movie2.png",
+        "description": "",
+        "points": "1143",
+        "comments": "23",
+        "category": "Movies & TV",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "Imagine a meeting between these two",
+        "image": "assets/images/picturesForCategories/movie3.png",
+        "description": "",
+        "points": "193",
+        "comments": "38",
+        "category": "Movies & TV",
+        "hashTags": "[]",
+        "owner": "null"
+    }
+]

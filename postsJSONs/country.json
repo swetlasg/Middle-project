@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Hungarian University, 2018",
+        "image": "assets/images/picturesForCategories/country1.png",
+        "description": "",
+        "points": "460",
+        "comments": "81",
+        "category": "Country",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "Fandens Svenskere",
+        "image": "assets/images/picturesForCategories/country2.png",
+        "description": "",
+        "points": "682",
+        "comments": "54",
+        "category": "Country",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "Yes,it's spring!",
+        "image": "assets/images/picturesForCategories/country3.png",
+        "description": "",
+        "points": "243",
+        "comments": "7",
+        "category": "Country",
+        "hashTags": "[]",
+        "owner": "null"
+    }
+]

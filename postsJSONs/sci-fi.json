@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Can anyone tell me more about these SCP 'Doctors'?",
+        "image": "assets/images/picturesForCategories/sci-fi1.png",
+        "description": "",
+        "points": "43",
+        "comments": "8",
+        "category": "Sci-fi",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "Whenever I play games",
+        "image": "assets/images/picturesForCategories/sci-fi2.png",
+        "description": "",
+        "points": "61",
+        "comments": "5",
+        "category": "Sci-fi",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "My brain at the middle of the night",
+        "image": "assets/images/picturesForCategories/sci-fi3.png",
+        "description": "",
+        "points": "472",
+        "comments": "36",
+        "category": "Sci-fi",
+        "hashTags": "[]",
+        "owner": "null"
+    }
+]

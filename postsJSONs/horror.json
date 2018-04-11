@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Put That Thing Back Where it Came From",
+        "image": "assets/images/picturesForCategories/horror1.png",
+        "description": "",
+        "points": "77",
+        "comments": "10",
+        "category": "Horror",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "Caedes",
+        "image": "assets/images/picturesForCategories/horror2.png",
+        "description": "",
+        "points": "61",
+        "comments": "1",
+        "category": "Horror",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "Bearer",
+        "image": "assets/images/picturesForCategories/horror3.png",
+        "description": "",
+        "points": "538",
+        "comments": "13",
+        "category": "Horror",
+        "hashTags": "[]",
+        "owner": "null"
+    }
+]

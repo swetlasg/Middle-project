@@ -1,0 +1,32 @@
+[
+    {
+        "title": "For all the Vikings fan out there and also #nohomo",
+        "image": "assets/images/picturesForCategories/awesome1.png",
+        "description": "Travis Fimmel",
+        "points": "48",
+        "comments": "12",
+        "category": "Awesome",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "Sunset In Giza",
+        "image": "assets/images/picturesForCategories/awesome2.png",
+        "description": "",
+        "points": "850",
+        "comments": "25",
+        "category": "Awesome",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "Boardman Tree Farm in Oregon",
+        "image": "assets/images/picturesForCategories/awesome3.png",
+        "description": "",
+        "points": "414",
+        "comments": "4",
+        "category": "Awesome",
+        "hashTags": "[]",
+        "owner": "null"
+    }
+]

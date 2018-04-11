@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Beer&Barbecue",
+        "image": "assets/images/picturesForCategories/food1.png",
+        "description": "",
+        "points": "757",
+        "comments": "79",
+        "category": "Food",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "...mhh :) ... dirt?",
+        "image": "assets/images/picturesForCategories/food2.png",
+        "description": "",
+        "points": "364",
+        "comments": "9",
+        "category": "Food",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "When you hate your life",
+        "image": "assets/images/picturesForCategories/food3.png",
+        "description": "",
+        "points": "1812",
+        "comments": "26",
+        "category": "Food",
+        "hashTags": "[]",
+        "owner": "null"
+    }
+]

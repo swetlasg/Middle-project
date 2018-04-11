@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Killer instincts",
+        "image": "assets/images/picturesForCategories/car1.png",
+        "description": "",
+        "points": "9",
+        "comments": "3",
+        "category": "Car",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "Amg gtr",
+        "image": "assets/images/picturesForCategories/car2.png",
+        "description": "",
+        "points": "163",
+        "comments": "20",
+        "category": "Car",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "Wicked ///M",
+        "image": "assets/images/picturesForCategories/car3.png",
+        "description": "",
+        "points": "45",
+        "comments": "0",
+        "category": "Car",
+        "hashTags": "[]",
+        "owner": "null"
+    }
+]

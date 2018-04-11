@@ -1,0 +1,32 @@
+[
+    {
+        "title": "About time...",
+        "image": "assets/images/picturesForCategories/comic1.png",
+        "description": "",
+        "points": "130",
+        "comments": "0",
+        "category": "Comic",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "I'm innocent I swear",
+        "image": "assets/images/picturesForCategories/comic2.png",
+        "description": "",
+        "points": "100",
+        "comments": "4",
+        "category": "Comic",
+        "hashTags": "[]",
+        "owner": "null"
+    },
+    {
+        "title": "This child is retarded",
+        "image": "assets/images/picturesForCategories/comic3.png",
+        "description": "",
+        "points": "349",
+        "comments": "19",
+        "category": "Comic",
+        "hashTags": "[]",
+        "owner": "null"
+    }
+]
