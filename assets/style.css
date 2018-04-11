@@ -94,7 +94,7 @@
 }
 #search-form{
     display: none;
-    position: absolute;
+    position: fixed;
     font-family: sans-serif;
     top: 49px;
     right: 70px;
@@ -265,4 +265,7 @@ div.coments > img:hover,div.coments > a > img:hover{
     left: 50px;
     padding: 20px;
     overflow: hidden;
+}
+.icon{
+    cursor: pointer;
 }

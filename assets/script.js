@@ -155,7 +155,7 @@ $(function () {
     });
     function showAllPosts(){
         var allpostove = '';
-        post.forEach(po =>{
+        post.forEach(po => {
             allpostove +=  `<div> 
             </div>
             <h1 id="caption">${po.title}</h1>
@@ -478,6 +478,9 @@ $(function () {
         $('#pc-show').attr('src',profilePic);
         $('#settings-div').hide();
         $('#post-div').show();
+    })
+    $('.icon').on('click',function(){
+        showAllPosts(post);
     })
 
     /*function showCountryList(categories) {
