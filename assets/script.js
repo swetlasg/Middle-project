@@ -155,6 +155,9 @@ $(function () {
             $('#singlePost-div').show();
         });
 
+        $('#settings-div').hide();
+        $('#profile-div').hide();
+
     });
 
     function showAllPosts() {
@@ -475,8 +478,20 @@ $(function () {
         $('#profile-div').hide();
         $('#post-div').hide();
         $('#personal_form').hide();
+        /*$('#singlePost-div').show();
+        showCategory();*/
+        
+    
+        
         isPersonal = !isPersonal;
     });
+
+    /*$('.all').on('click', function(event){
+        event.originalEvent.preventDefault();
+        $('#settings-div').hide();
+        $('#profile-div').hide();
+        $('#personal_form').hide();
+    })*/
 
     $('#save-changes').on('click', function (event) {
         event.originalEvent.preventDefault();
@@ -496,6 +511,10 @@ $(function () {
         $('#post-div').show();
     });
     $('.icon').on('click', function () {
+        $('#personal_form').hide();
+        $('#profile-div').hide();
+        $('#settings-div').hide();
+        $("#post-div").show();
         showAllPosts(post);
     });
 
