@@ -33,11 +33,14 @@ $(function () {
                 $('#login-form').hide();
                 $('#topMenu').hide();
                 $('#topMenu-logged').show();
+                $('#error').html("");
                 profileName = userStorage.getLoggedUser().username;
+            }else{
+                $('#error').html("Invalid username / password");
             }
             user = userStorage.logIn(username, password);
             // id = user.id;
-        })
+        });
     });
 
 
@@ -267,7 +270,7 @@ $(function () {
 
     $('#animeManga').on('click', function (event) {
         event.originalEvent.preventDefault();
-        name = 'anime';
+        name = 'anime & manga';
         categoryPost = [];
         $.get('postsJSONs/' + name + '.json').then(function (p) {
             categoryPost = categoryPost.concat(p);
@@ -317,7 +320,7 @@ $(function () {
 
     $('#clasic').on('click', function (event) {
         event.originalEvent.preventDefault();
-        name = 'clasicalArt';
+        name = 'clasical art memes';
         categoryPost = [];
         $.get('postsJSONs/' + name + '.json').then(function (p) {
             categoryPost = categoryPost.concat(p);
@@ -347,7 +350,7 @@ $(function () {
 
     $('#girly').on('click', function (event) {
         event.originalEvent.preventDefault();
-        name = 'girly';
+        name = 'girly things';
         categoryPost = [];
         $.get('postsJSONs/' + name + '.json').then(function (p) {
             categoryPost = categoryPost.concat(p);
@@ -357,7 +360,7 @@ $(function () {
 
     $('#historycal').on('click', function (event) {
         event.originalEvent.preventDefault();
-        name = 'historycal';
+        name = 'historycal images';
         categoryPost = [];
         $.get('postsJSONs/' + name + '.json').then(function (p) {
             categoryPost = categoryPost.concat(p);
@@ -377,7 +380,7 @@ $(function () {
 
     $('#movies').on('click', function (event) {
         event.originalEvent.preventDefault();
-        name = 'movies';
+        name = 'movies & TV';
         categoryPost = [];
         $.get('postsJSONs/' + name + '.json').then(function (p) {
             categoryPost = categoryPost.concat(p);
